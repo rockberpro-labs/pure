@@ -26,7 +26,7 @@ Add one file to the project. Both platforms take the same inputs (see [Options](
 on: pull_request
 jobs:
   pure:
-    uses: rockberpro/pure/.github/workflows/check.yml@v1
+    uses: rockberpro-labs/pure/.github/workflows/check.yml@v1
     with:
       php_version: "7.4"
 ```
@@ -39,7 +39,7 @@ Findings appear as annotations on the pull request diff, and the summary table a
 
 ```yaml
 include:
-  - remote: https://raw.githubusercontent.com/rockberpro/pure/v1/gitlab/pure.yml
+  - remote: https://raw.githubusercontent.com/rockberpro-labs/pure/v1/gitlab/pure.yml
     inputs:
       php_version: "7.4"
 ```
@@ -55,7 +55,7 @@ This adds a `pure` job to merge request pipelines. Findings go to the Code Quali
 | `test_version` | `"<php_version>-"` | PHP versions to warn about, e.g. `"7.4-8.5"` while planning an upgrade |
 | `phpstan_level` | `"1"` | PHPStan level, ignored if the project has a `phpstan.neon` |
 | `stage` | `test` | GitLab only: the stage the job runs in. It must exist in the project's `stages` |
-| `image` | `ghcr.io/rockberpro/pure` | The image without its tag, for forks that publish their own |
+| `image` | `ghcr.io/rockberpro-labs/pure` | The image without its tag, for forks that publish their own |
 
 ### PHP versions
 
@@ -99,8 +99,8 @@ Then add a PHPStan baseline (see [Legacy code](#legacy-code-start-with-a-baselin
 ## Run it locally (same result as CI)
 
 ```bash
-docker run --rm -v "$PWD:/app" ghcr.io/rockberpro/pure:1-7.4                                 # all files
-docker run --rm -v "$PWD:/app" -e PURE_BASE=origin/main ghcr.io/rockberpro/pure:1-7.4        # only your changes
+docker run --rm -v "$PWD:/app" ghcr.io/rockberpro-labs/pure:1-7.4                                 # all files
+docker run --rm -v "$PWD:/app" -e PURE_BASE=origin/main ghcr.io/rockberpro-labs/pure:1-7.4        # only your changes
 ```
 
 ## Legacy code: start with a baseline
@@ -108,7 +108,7 @@ docker run --rm -v "$PWD:/app" -e PURE_BASE=origin/main ghcr.io/rockberpro/pure:
 The first full run on an old app reports thousands of issues. Record them once so that only **new** errors fail:
 
 ```bash
-docker run --rm -v "$PWD:/app" ghcr.io/rockberpro/pure:1-7.4 \
+docker run --rm -v "$PWD:/app" ghcr.io/rockberpro-labs/pure:1-7.4 \
   phpstan analyse --level=1 -c /opt/pure/config/phpstan.neon --generate-baseline --allow-empty-baseline .
 ```
 

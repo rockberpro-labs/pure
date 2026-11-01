@@ -1,7 +1,7 @@
 # GitLab template: projects include this to run the Pure checks on their merge requests.
 #
 #   include:
-#     - remote: https://raw.githubusercontent.com/rockberpro/pure/v1/gitlab/pure.yml
+#     - remote: https://raw.githubusercontent.com/rockberpro-labs/pure/v1/gitlab/pure.yml
 #       inputs:
 #         php_version: "7.4"
 spec:
@@ -24,7 +24,7 @@ spec:
       default: test
     image:
       description: Pure image, without the tag
-      default: ghcr.io/rockberpro/pure
+      default: ghcr.io/rockberpro-labs/pure
 ---
 pure:
   stage: $[[ inputs.stage ]]

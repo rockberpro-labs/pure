@@ -23,7 +23,7 @@ on:
       image:
         description: Pure image, without the tag
         type: string
-        default: ghcr.io/rockberpro/pure
+        default: ghcr.io/rockberpro-labs/pure
 
 jobs:
   pure:
