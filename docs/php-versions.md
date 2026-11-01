@@ -1,6 +1,6 @@
 # PHP versions
 
-Pure has one image per PHP version: `ghcr.io/rockberpro/pure:1-<version>` for the v1 release line (see [Versioning](../README.md#versioning)). The project picks its version with two inputs, and they answer different questions:
+Pure has one image per PHP version: `ghcr.io/rockberpro-labs/pure:1-<version>` for the v1 release line (see [Versioning](../README.md#versioning)). The project picks its version with two inputs, and they answer different questions:
 
 | Input | Question it answers | Example |
 |---|---|---|
@@ -60,7 +60,7 @@ jobs:
       fail-fast: false
       matrix:
         php: ["7.4", "8.4"]
-    uses: rockberpro/pure/.github/workflows/check.yml@v1
+    uses: rockberpro-labs/pure/.github/workflows/check.yml@v1
     with:
       php_version: ${{ matrix.php }}
       test_version: "7.4-8.4"
@@ -77,8 +77,8 @@ On GitLab, including the template twice doesn't work yet, because both copies cr
 Use the same tag as CI, or you'll get different results:
 
 ```bash
-docker run --rm -v "$PWD:/app" ghcr.io/rockberpro/pure:1-7.4                            # like php_version: "7.4"
-docker run --rm -v "$PWD:/app" -e PURE_TEST_VERSION=7.4-8.4 ghcr.io/rockberpro/pure:1-7.4
+docker run --rm -v "$PWD:/app" ghcr.io/rockberpro-labs/pure:1-7.4                            # like php_version: "7.4"
+docker run --rm -v "$PWD:/app" -e PURE_TEST_VERSION=7.4-8.4 ghcr.io/rockberpro-labs/pure:1-7.4
 ```
 
 Your laptop's PHP doesn't matter. Everything runs inside the image.
