@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="resources/img/pure.png" alt="Pure" width="420">
+</p>
+
 # Pure
 
 **Pu**ll + **Re**quest: a shared PHP code-quality standard for pull requests.
